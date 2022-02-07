@@ -1,11 +1,49 @@
-# Getting Started with Create React App
+# Shareo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with Create-React-App. It'a simple demo/POC of a feature that lets users upload a video, generate shareable links to that video and engage with the link using views and comments.
 
-## Available Scripts
+Video Upload -> Shareable Link -> View Video is end to end implemented using Firebase. 
+
+Comments functionality was integrated using Disqus. Views functionality isn't implemented in this project. 
+
+## Project Structure
+
+`/src/context `
+
+The context folder contains global data store setup that's ready to be used for handling authentication on Frontend. (This is unrelated to the project wrt current scope because project is not using authentication yet )
+
+`/src/firebase.config.js`
+
+Firebase configurations and exports (Firestore, Auth, Storage etc). If you wish to use your own Firebase project, simply replace the config object with yours inside this file.
+
+`/src/App.js`
+
+Root component for the project. It contains two routes - `/` and `/video:videoid`. 
+`/` is used to render the Homepage inside `src/pages/Home.js`. It contains UI and logic of upload videos functionality. 
+
+The `/video:videoid` renders the Video page inside `src/pages/Video.js`. It contains UI and logic of view video, view video count, and comments functionality. 
+
+`/src/hooks/useAuth.js`
+
+Abstracted logic layer that interfaces Firebase Auth with Auth UI. (This is unrelated to the project wrt current scope because project is not using authentication yet )
+
+`/src/hooks/useFingerprint.js`
+
+Returns user's unique fingerprint id or hash.
+
+`/src/utils/validations`
+
+Contains a simple validation utility function that can be used to check if an uploaded file was a valid video file. 
+## Run Locally
+
+Ensure you have NodeJS V15 or greater.
+
+Fork/Clone the Github Repo. Open the local repo in a code editor like VSCode and run:
 
 In the project directory, you can run:
 
+### `npm install`
+Installs all the dependencies for the project. 
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -14,57 +52,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

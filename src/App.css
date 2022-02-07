@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.videopage-container{
+  padding: 0px 20px;
+}
+
+.comments-container{
+  max-width: 400px;
+  margin: 0 auto;
+}
